@@ -29,3 +29,11 @@
   обрані; структура теки; правило синхронізації `docs/PROJECT_STATE.md` ↔
   `project_tg-task-manager.md`), `SKILL.md` (work sequence й DoD тепер
   посилаються на `docs/PROJECT_STATE.md`) та `HANDOFF.md` (Крок 4 спрощено).
+- Підключено Obsidian через MCP (Local REST API, HTTP-порт 27123, user-scope
+  конфіг у `~/.claude.json` — ключ не потрапляє в git). Домовленість: один
+  vault на всі проєкти, папка на проєкт.
+- Продубльовано всю документацію проєкту у vault, папка `TG Task Manager/`
+  (`CLAUDE.md`, `BUGS.md`, `CHANGELOG.md`, `PROJECT_STATE.md`, `HANDOFF.md`,
+  `SKILL.md`) — копії для читання, не джерело правди. Додано окрему нотатку
+  "Підключення Claude та перенесення на інший ПК" із повною інструкцією
+  (CLAUDE-KIT, git-перенесення коду/стану, Obsidian MCP підключення).
