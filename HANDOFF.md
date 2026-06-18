@@ -38,28 +38,27 @@ exist on this machine.
   + personal memory), confirming each write with the user as usual.
 
 ## Step 4 — restore project state memory
-`project_tg-task-manager.md` (status/backlog) lives in
-`<claude-home>/memory/` on the OLD machine — it does NOT travel with
-`git clone`, since it's outside the repo by design (CLAUDE-KIT keeps project
-memory global, not per-repo).
-- Check if it already exists on this machine (e.g. copied manually together
-  with the rest of `<claude-home>/memory/`).
-- If missing: recreate it from this repo's `CLAUDE.md` + `CHANGELOG.md` (they
-  capture the same facts — purpose, stack, decisions, backlog) and confirm
-  the recreated status/backlog with the user before saving it.
-- Flag to the user: this is a single point of failure for cross-machine
-  continuity — consider asking whether they want project state mirrored
-  inside the repo itself (e.g. `docs/PROJECT_STATE.md`) going forward, so a
-  fresh clone is always self-sufficient.
+Project state now lives in **two** places, kept in sync:
+- `docs/PROJECT_STATE.md` — in this repo, travels with `git clone` automatically.
+- `<claude-home>/memory/project_tg-task-manager.md` — global Claude memory,
+  does NOT travel with `git clone`.
+- If `<claude-home>/memory/project_tg-task-manager.md` is missing on this
+  machine: recreate it from `docs/PROJECT_STATE.md` (same content, just also
+  add the YAML frontmatter block used by other files in
+  `<claude-home>/memory/` — name/description/`type: project`), and add a
+  reference line in `<claude-home>/memory/MEMORY.md` under "## Projects".
+- `docs/PROJECT_STATE.md` is the file guaranteed to be present and current —
+  prefer it as the primary source if the two ever disagree (check the most
+  recent dated entry in `CHANGELOG.md` to confirm which one is stale).
 
 ## Step 5 — resume work
 Read `CLAUDE.md` + `.claude/skills/tg-task-manager/SKILL.md` +
-`project_tg-task-manager.md`, then continue the backlog. Last agreed next
-step (as of this handoff): set up Alembic migrations against a real
-PostgreSQL instance (local or Docker) before building the dialog logic —
-reason: the dialog/Gemini/Vikunja logic can be mocked, but it's pointless to
-build on models that have never touched a real database. Full backlog is in
-`project_tg-task-manager.md` (or `CHANGELOG.md` as a fallback).
+`docs/PROJECT_STATE.md` (and `project_tg-task-manager.md` if present), then
+continue the backlog. Last agreed next step (as of this handoff): set up
+Alembic migrations against a real PostgreSQL instance (local or Docker)
+before building the dialog logic — reason: the dialog/Gemini/Vikunja logic
+can be mocked, but it's pointless to build on models that have never touched
+a real database. Full backlog is in `docs/PROJECT_STATE.md`.
 
 ## House rules (recap — full version lives in global CLAUDE.md)
 - Respond to the user in Ukrainian; code/identifiers in English; project docs

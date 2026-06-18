@@ -19,3 +19,13 @@
 - Додано `HANDOFF.md` — інструкція для Claude на новому ПК: як відновити
   середовище (venv, залежності), глобальний CLAUDE-KIT і стан проєкту з
   пам'яті, та з чого продовжувати беклог.
+
+## 2026-06-19
+- Додано `docs/PROJECT_STATE.md` — дзеркало стану проєкту прямо в репозиторії
+  (раніше стан жив лише в `<claude-home>/memory/project_tg-task-manager.md`,
+  яка не переноситься через `git clone`). Тепер свіжий клон сам по собі має
+  повний контекст.
+- Оновлено `CLAUDE.md` (стек: aiogram 3.x, SQLAlchemy/asyncpg/Alembic вже
+  обрані; структура теки; правило синхронізації `docs/PROJECT_STATE.md` ↔
+  `project_tg-task-manager.md`), `SKILL.md` (work sequence й DoD тепер
+  посилаються на `docs/PROJECT_STATE.md`) та `HANDOFF.md` (Крок 4 спрощено).

@@ -7,7 +7,9 @@
 Any change to code or documentation in this project.
 
 ## Work sequence
-1. Read the project `CLAUDE.md` + this `SKILL.md` + `project_tg-task-manager.md` (state).
+1. Read the project `CLAUDE.md` + this `SKILL.md` + `docs/PROJECT_STATE.md`
+   (in-repo state; also update `project_tg-task-manager.md` in global memory
+   if present — keep both in sync).
 2. Phase 1: confirm understanding of the request.
 3. Phase 2: analysis + plan → confirmation (for T2).
 4. Make the changes.
@@ -24,7 +26,8 @@ Don't say "done" until **every** item is met and verified:
 - [ ] `BUGS.md` updated (new bugs logged / fixed ones marked)
 - [ ] `CHANGELOG.md` updated
 - [ ] Documentation is in sync with the code
-- [ ] `project_tg-task-manager.md` updated (status / backlog)
+- [ ] `docs/PROJECT_STATE.md` updated (status / backlog), and
+      `project_tg-task-manager.md` in global memory kept in sync with it
 
 ## Decision log (ADR) — only when needed
 If a decision was made where **rejected alternatives** are worth remembering,
